@@ -6,6 +6,7 @@ class Score extends Component {
     return (
       <WebView
         source={{
+          //this is url of website
           uri: 'https://cricbuzz.com',
         }}
         style={{marginTop: 20}}
