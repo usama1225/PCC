@@ -4,11 +4,11 @@ import React, { useState , useEffect} from 'react'
 
 const Registration= ({navigation}) => {
   const [isValid,setIsValid]= useState(false)
-  const [playerName, setPlayerName]= useState();
-  const [playerPassword, setPlayerPassword]= useState();
-  const [playerConfirmPassword, setConfirmPlayerPassword]= useState();
-  const [playerEmail, setPlayerEmail]= useState();
-  const [playerNumber, setPlayerNumber]= useState();
+  const [playerName, setPlayerName]= useState("");
+  const [playerPassword, setPlayerPassword]= useState("");
+  const [playerConfirmPassword, setConfirmPlayerPassword]= useState("");
+  const [playerEmail, setPlayerEmail]= useState("");
+  const [playerNumber, setPlayerNumber]= useState("");
   const SignUpPressed = ()=>{
     navigation.navigate('tab');
   }
@@ -18,6 +18,7 @@ const Registration= ({navigation}) => {
   },[playerEmail,playerName,playerConfirmPassword,playerPassword,playerNumber]);
   const checkValidation = ()=>{
     if(playerEmail === ""){
+      Alert.alert("Please enter Email")
       setIsValid(false);
       return;
     }
@@ -40,19 +41,19 @@ const Registration= ({navigation}) => {
   };
 
 return(
-<ScrollView
-      style={{flex: 2, backgroundColor: '#ffff'}}
-      showsVerticalScrollIndicator={false} contentContainerStyle={{flexGrow: 1}}>
-         
-  <View> 
-        <View style={{ height:'40%' , width:'100%' ,backgroundColor:'#ffafcc',justifyContent:'center',alignItems:'center'}}>
+
+  <View style={{flex:2}}> 
+        <View style={{ flex:0.7 ,backgroundColor:'#ffafcc',justifyContent:'center',alignItems:'center'}}>
         <Image
         style={{height:200, width:200 }}
         source={require("./assets/logo2.png")}
         />
         <Text style={{fontSize:28,fontWeight:'bold',color:'#ffff'}}>Paradise Cricket Team</Text>
       </View>
-      <SafeAreaView style={{height:'60%', width:'100%', backgroundColor:'#ffafcc'}}>
+      <SafeAreaView style={{flex:1.3, backgroundColor:'#ffafcc'}}>
+      <ScrollView
+      style={{flex: 2, }}
+      showsVerticalScrollIndicator={false} contentContainerStyle={{flexGrow: 1}}>
       <TextInput
           style={styles.input}
           placeholder="Name"
@@ -101,11 +102,11 @@ return(
             </Text>
           </TouchableOpacity>
           <Text style={{padding:40,color:'black', }}> have an account? <TouchableOpacity onPress={()=>{navigation.navigate('login')}}><Text style={{color:'red',fontSize:15, paddingTop:10}}>Login</Text></TouchableOpacity> </Text>
-          
+          </ScrollView>
       </SafeAreaView>
       
       </View>
-      </ScrollView>
+    
     
 );
   }
