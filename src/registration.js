@@ -10,36 +10,31 @@ const Registration= ({navigation}) => {
   const [playerEmail, setPlayerEmail]= useState("");
   const [playerNumber, setPlayerNumber]= useState("");
   const SignUpPressed = ()=>{
-    navigation.navigate('tab');
-  }
-  useEffect ( ()=>{
-    checkValidation();
-
-  },[playerEmail,playerName,playerConfirmPassword,playerPassword,playerNumber]);
-  const checkValidation = ()=>{
     if(playerEmail === ""){
-      Alert.alert("Please enter Email")
-      setIsValid(false);
+      Alert.alert("Please enter Email");
       return;
     }
     if(playerName === ""){
-      setIsValid(false);
+      Alert.alert("Please enter Name");
+      return;
+    }
+    
+    if(playerPassword === ""){
+      Alert.alert("Please enter Password");
+      return;
+    }
+    
+    if(playerConfirmPassword === ""){
+      Alert.alert("Please enter Confirm Password");
       return;
     }
     if(playerNumber === ""){
-      setIsValid(false);
+      Alert.alert("Please enter Number");
       return;
     }
-    if(playerPassword === ""){
-      setIsValid(false);
-    }
-    if(playerConfirmPassword === ""){
-      setIsValid(false);
-      return;
-    }
-    setIsValid(true);
-  };
-
+    navigation.navigate('tab');
+  }
+  
 return(
 
   <View style={{flex:2}}> 
@@ -96,7 +91,7 @@ return(
           backgroundColor='#ffc8dd'
           onChangeText={(text)=> setPlayerNumber(text)}
           />
-          <TouchableOpacity onPress={SignUpPressed} disabled={isValid === false}>
+          <TouchableOpacity onPress={SignUpPressed}>
             <Text style={styles.button}>
               Sign Up
             </Text>
