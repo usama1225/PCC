@@ -1,15 +1,44 @@
 import { Text, View, StyleSheet, Image, SafeAreaView,TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState , useEffect} from 'react'
 
 
 const Registration= ({navigation}) => {
+  const [isValid,setIsValid]= useState(false)
   const [playerName, setPlayerName]= useState();
   const [playerPassword, setPlayerPassword]= useState();
+  const [playerConfirmPassword, setConfirmPlayerPassword]= useState();
   const [playerEmail, setPlayerEmail]= useState();
   const [playerNumber, setPlayerNumber]= useState();
   const SignUpPressed = ()=>{
-    Alert.alert(playerEmail)
+    navigation.navigate('tab');
   }
+  useEffect ( ()=>{
+    checkValidation();
+
+  },[playerEmail,playerName,playerConfirmPassword,playerPassword,playerNumber]);
+  const checkValidation = ()=>{
+    if(playerEmail === ""){
+      setIsValid(false);
+      return;
+    }
+    if(playerName === ""){
+      setIsValid(false);
+      return;
+    }
+    if(playerNumber === ""){
+      setIsValid(false);
+      return;
+    }
+    if(playerPassword === ""){
+      setIsValid(false);
+    }
+    if(playerConfirmPassword === ""){
+      setIsValid(false);
+      return;
+    }
+    setIsValid(true);
+  };
+
 return(
 <ScrollView
       style={{flex: 2, backgroundColor: '#ffff'}}
@@ -55,6 +84,7 @@ return(
           textAlign='center'
           placeholderTextColor={'#023047'}
           backgroundColor='#ffc8dd'
+          onChangeText={(text)=> setConfirmPlayerPassword(text)}
           
           />
           <TextInput
@@ -65,7 +95,7 @@ return(
           backgroundColor='#ffc8dd'
           onChangeText={(text)=> setPlayerNumber(text)}
           />
-          <TouchableOpacity onPress={SignUpPressed}>
+          <TouchableOpacity onPress={SignUpPressed} disabled={isValid === false}>
             <Text style={styles.button}>
               Sign Up
             </Text>

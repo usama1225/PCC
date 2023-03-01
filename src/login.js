@@ -1,4 +1,4 @@
-import { Text, View, Image, StyleSheet, TextInput,SafeAreaView,TouchableOpacity, ScrollView } from 'react-native'
+import { Text, View, Image, StyleSheet, TextInput,SafeAreaView,TouchableOpacity, ScrollView, Button } from 'react-native'
 import React, { Component } from 'react'
 import Icon from 'react-native-vector-icons/Entypo'
 const Login = ({navigation}) => {
@@ -36,7 +36,7 @@ const Login = ({navigation}) => {
               Login
             </Text>
           </TouchableOpacity>
-          <Text style={{padding:40,color:'black', }}>Don't have an account? <TouchableOpacity onPress={()=>{navigation.navigate('registration')}}><Text style={{color:'red',fontSize:15, paddingTop:10}}>SignUp</Text></TouchableOpacity> </Text>
+          <Text style={{padding:40,color:'black', }}>Don't have an account?  </Text><Button title='Signup' onPress={()=>{navigation.navigate('registration')}}/>
           <TouchableOpacity>
             <Text style={{color:"#363537",paddingHorizontal:130, fontSize:17}}>Forget Password?</Text>
           </TouchableOpacity>
