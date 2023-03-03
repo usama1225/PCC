@@ -1,5 +1,6 @@
 import { Text, View, StyleSheet, Image, SafeAreaView,TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native'
-import React, { useState , useEffect} from 'react'
+import React, { useState ,useRef ,useEffect} from 'react'
+
 
 
 const Registration= ({navigation}) => {
@@ -9,6 +10,8 @@ const Registration= ({navigation}) => {
   const [playerConfirmPassword, setConfirmPlayerPassword]= useState("");
   const [playerEmail, setPlayerEmail]= useState("");
   const [playerNumber, setPlayerNumber]= useState("");
+
+  
   const SignUpPressed = ()=>{
     if(playerEmail === ""){
       Alert.alert("Please enter Email");
@@ -49,6 +52,8 @@ return(
       <ScrollView
       style={{flex: 2, }}
       showsVerticalScrollIndicator={false} contentContainerStyle={{flexGrow: 1}}>
+        
+       
       <TextInput
           style={styles.input}
           placeholder="Name"
@@ -128,6 +133,10 @@ const styles=StyleSheet.create({
     marginTop:20,
     color:'#e76f51'
 
+  },
+  camera:{
+    height:100,
+    width:100,
   }
 });
 
