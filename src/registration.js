@@ -3,6 +3,7 @@ import React, { useState ,useRef ,useEffect} from 'react'
 
 
 
+
 const Registration= ({navigation}) => {
   const [isValid,setIsValid]= useState(false)
   const [playerName, setPlayerName]= useState("");
