@@ -4,6 +4,7 @@ import React, { useState ,useRef ,useEffect} from 'react'
 
 
 
+
 const Registration= ({navigation}) => {
   const [isValid,setIsValid]= useState(false)
   const [playerName, setPlayerName]= useState("");
@@ -11,6 +12,7 @@ const Registration= ({navigation}) => {
   const [playerConfirmPassword, setConfirmPlayerPassword]= useState("");
   const [playerEmail, setPlayerEmail]= useState("");
   const [playerNumber, setPlayerNumber]= useState("");
+ 
 
   
   const SignUpPressed = ()=>{

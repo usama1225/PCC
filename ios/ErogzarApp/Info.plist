@@ -51,11 +51,24 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSCameraUsageDescription</key>
-<string>$(PRODUCT_NAME) needs access to your Camera.</string>
-
+	
 <!-- optionally, if you want to record audio: -->
 <key>NSMicrophoneUsageDescription</key>
 <string>$(PRODUCT_NAME) needs access to your Microphone.</string>
+<!-- Required with iOS 10 and higher -->
+<key>NSCameraUsageDescription</key>
+<string>Person needs access to your Camera.</string>
+
+<!-- Required with iOS 11 and higher: include this only if you are planning to use the camera roll -->
+<key>NSPhotoLibraryAddUsageDescription</key>
+<string>Person needs access to your Camera.</string>
+
+<!-- Include this only if you are planning to use the camera roll -->
+<key>NSPhotoLibraryUsageDescription</key>
+<string>Person needs access to your Camera.</string>
+
+<!-- Include this only if you are planning to use the microphone for video recording -->
+<key>NSMicrophoneUsageDescription</key>
+<string>Person needs access to your Camera.</string>
 </dict>
 </plist>
