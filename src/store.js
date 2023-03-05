@@ -12,27 +12,33 @@ const Store = () => {
   
  
   return (
-    <View style={styles.container}>
-      <View style={{flex:0.5}}>
+    <View style={{flex:1}}>
+      <View style={{flex:2}}>
         <RNCamera
         ref={cameraRef}
         autoFocusPointOfInterest={autoFocusPoint.normalized}
         type={type}
         ratio={ratio}
-        style={{ flex: 1 }}
+        style={{ flex: 1}}
         autoFocus={autoFocus}
       />
+      <TouchableOpacity style={styles.camButton}>
+        
+      </TouchableOpacity>
       </View>
-      <View  style={{flex:2}}>
+      <View  style={{flex:2, backgroundColor:'green'}}>
+        <Text>Hellow world</Text>
       </View>
        </View>
   )};
 const styles=StyleSheet.create({
-  container:{
-    flex:2,
-   
-    
-
+  
+  camButton: {
+    height:60,
+    width:60,
+    backgroundColor:'white',
+    borderRadius:60,
+    alignSelf:'center' 
   }
 })
 

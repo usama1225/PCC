@@ -1,6 +1,7 @@
 import { Text, View, StyleSheet, Image, SafeAreaView,TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native'
 import React, { useState ,useRef ,useEffect} from 'react'
-
+import { RNCamera } from 'react-native-camera';
+import { useCamera } from 'react-native-camera-hooks';
 
 
 
@@ -12,7 +13,11 @@ const Registration= ({navigation}) => {
   const [playerConfirmPassword, setConfirmPlayerPassword]= useState("");
   const [playerEmail, setPlayerEmail]= useState("");
   const [playerNumber, setPlayerNumber]= useState("");
- 
+  const [
+    { cameraRef, type, ratio, autoFocus, autoFocusPoint, isRecording },
+   
+    
+  ] = useCamera();
 
   
   const SignUpPressed = ()=>{
@@ -55,7 +60,20 @@ return(
       <ScrollView
       style={{flex: 2, }}
       showsVerticalScrollIndicator={false} contentContainerStyle={{flexGrow: 1}}>
-        
+         <View style={{flex:2}}>
+      <View style={{flex:0.5}}>
+        <RNCamera
+        ref={cameraRef}
+        autoFocusPointOfInterest={autoFocusPoint.normalized}
+        type={type}
+        ratio={ratio}
+        style={{ flex: 1 }}
+        autoFocus={autoFocus}
+      />
+      </View>
+      <View  style={{flex:2}}>
+      </View>
+       </View>
        
       <TextInput
           style={styles.input}
